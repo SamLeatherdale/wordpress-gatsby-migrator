@@ -6,8 +6,8 @@ date: "${date}"${passthroughUrl ? `
 passthroughUrl: ${passthroughUrl}` : ''}
 ---
 
-${content}`
-    return post
-}
+${content}`;
+    return post;
+};
 
-module.exports = { post: postTemplate }
+module.exports = { post: postTemplate };
