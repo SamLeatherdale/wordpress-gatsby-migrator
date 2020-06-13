@@ -34,7 +34,7 @@ const importPosts = async (file) => {
         };
 
         const [year, month, day, ...slug] = mappedItem.slug.split('/');
-        mappedItem.slug = [postType, year, ...slug].join('/');
+        mappedItem.path = [postType, year, ...slug].join('/');
 
         // Add passthroughUrl if exists
         const postMeta = item['wp:postmeta'];
@@ -84,7 +84,7 @@ const parseImages = (content) => {
     const imagesElements = postElements('img');
     const images = imagesElements.map((index, item) => {
         const imageName = uuid();
-        const imageUrl = item.attribs['data-image'] || item.attribs['data-src'];
+        const imageUrl = item.attribs['data-image'] || item.attribs['data-src'] || item.attribs['src'];
         if (!imageUrl) {
 
             return null;

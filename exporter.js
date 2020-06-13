@@ -9,7 +9,7 @@ const exportPosts = (posts, rootPath) => {
     }
 
     posts.forEach(async post => {
-        const postPath = `${__dirname}/${rootPath}${post.slug}`;
+        const postPath = `${__dirname}/${rootPath}${post.path}`;
         await fs.ensureDir(postPath);
 
         post.images.forEach(async image => {
@@ -24,7 +24,7 @@ const exportPosts = (posts, rootPath) => {
         });
 
         post.title = post.title.replace(/"/g, '\\"'); // escape quotes
-        const fileContents = templates.post(post.title, post.date.toISOString(), post.passthroughUrl, post.markdownContent);
+        const fileContents = templates.post(post.title, post.slug, post.date.toISOString(), post.passthroughUrl, post.markdownContent);
         await fs.outputFile(`${postPath}/index.md`, fileContents);
     });
 };
