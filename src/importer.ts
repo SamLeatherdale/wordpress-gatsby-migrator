@@ -93,7 +93,7 @@ const parseImages = (content): ParseImagesResult  => {
   doc('noscript').remove(); // noscript is not touched by cheerio, but remains in the output
   doc('a').each((i, el) => {
     const $el = cheerio(el);
-    if ($el.has('img')) {
+    if ($el.find('img').length > 0) {
       // Fix for issue https://github.com/domchristie/turndown/issues/332
       $el.html(doc.html($el.find('img')));
     }
