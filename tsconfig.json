@@ -1,0 +1,12 @@
+{
+  "include": ["src"],
+  "transpileOnly": true,
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ES2017",
+    "esModuleInterop": true,
+    "noEmit": true,
+    "allowJs": true,
+    "checkJs": true
+  }
+}

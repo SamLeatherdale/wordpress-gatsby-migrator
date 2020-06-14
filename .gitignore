@@ -103,4 +103,5 @@ typings/
 
 # Default input/output files
 input.xml
-blog/
+/blog/
+/exports/
